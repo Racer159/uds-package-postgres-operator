@@ -17,9 +17,9 @@ components:
     manifests:
       - name: crds
         files:
-          - https://github.com/zalando/postgres-operator/raw/v1.13.0/charts/postgres-operator/crds/operatorconfigurations.yaml
-          - https://github.com/zalando/postgres-operator/raw/v1.13.0/charts/postgres-operator/crds/postgresqls.yaml
-          - https://github.com/zalando/postgres-operator/raw/v1.13.0/charts/postgres-operator/crds/postgresteams.yaml
+          - https://github.com/zalando/postgres-operator/raw/v1.15.1/charts/postgres-operator/crds/operatorconfigurations.yaml
+          - https://github.com/zalando/postgres-operator/raw/v1.15.1/charts/postgres-operator/crds/postgresqls.yaml
+          - https://github.com/zalando/postgres-operator/raw/v1.15.1/charts/postgres-operator/crds/postgresteams.yaml
 
   - name: postgres-operator
     required: true
@@ -60,13 +60,13 @@ components:
         valuesFiles:
           - ./values/upstream-config-values.yaml
     images:
-      - ghcr.io/zalando/postgres-operator:v1.13.0
-      - ghcr.io/zalando/postgres-operator/logical-backup:v1.13.0
+      - ghcr.io/zalando/postgres-operator:v1.15.1
+      - ghcr.io/zalando/postgres-operator/logical-backup:v1.15.1
       - docker.io/bitnami/pgbouncer:1.23.1
       # Docker image that provides PostgreSQL and Patroni bundled together for PostgreSQL HA
       - ghcr.io/zalando/spilo-15:3.2-p1
       # Container image that provides the postgres-exporter sidecar to create a metrics endpoint
-      - quay.io/prometheuscommunity/postgres-exporter:v0.15.0
+      - quay.io/prometheuscommunity/postgres-exporter:v0.19.1
 
   - name: postgres-operator
     required: true
@@ -83,7 +83,7 @@ components:
           - ./values/unicorn-config-values.yaml
     images:
       - cgr.dev/du-uds-defenseunicorns/postgres-operator-fips:1.13.0
-      - ghcr.io/zalando/postgres-operator/logical-backup:v1.13.0
+      - ghcr.io/zalando/postgres-operator/logical-backup:v1.15.1
       - cgr.dev/du-uds-defenseunicorns/pgbouncer-fips:1.22.1
       # Docker image that provides PostgreSQL and Patroni bundled together for PostgreSQL HA
       - ghcr.io/zalando/spilo-15:3.2-p1
